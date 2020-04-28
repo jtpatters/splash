@@ -1,0 +1,245 @@
+<html>
+<head>
+    <link href="jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet">
+    <script src="jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+    <script src="jquery-ui-1.12.1/jquery-ui.js"></script>
+<style>
+    body{
+        background-color: #bbb;
+        background-image: linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+        margin: 0 auto;
+        text-align:center;
+    }
+    .container {
+        float:left;
+        padding:10px;
+        width:185px;
+        height:180px;
+    }
+    .super_container {
+        float:left;
+        padding:10px;
+        width:390px;
+    }
+    .super_grower {
+        background-color:#2cb5e8;
+        padding:10px;
+        left:75px; 
+        top:50px; 
+        width:380px;
+        height:200px;
+        overflow:hidden;
+        position:relative;
+        text-align:center;
+        vertical-align: middle;
+        color:ffffff;
+        line-height:6em;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size:32px;
+        box-shadow: 2px 4px 8px rgba(0, 0, 0, .5);
+    }
+    .super_grower b {
+        opacity:.6;
+    }.grower {
+        left:75px; 
+        top:50px; 
+        width:175px;
+        height:150px;
+        overflow:hidden;
+        position:relative;
+        text-align:center;
+        vertical-align: middle;
+        color:ffffff;
+        padding:10px;
+        line-height:4.5em;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size:32px;
+        box-shadow: 2px 4px 8px rgba(0, 0, 0, .5);
+    }
+    .grower b {
+        opacity:.6;
+    }
+    .content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        overflow:hidden;
+        transform: translate(-50%, -50%);
+        font-size:22px;
+        line-height:1.8em;
+        display:none;
+        width:200px;
+    }
+    a {  
+        opacity: 0.6;
+    }
+    a:hover {
+        font-weight: bolder;
+        font-size:26px;
+        opacity: 1;
+    }
+</style>
+</head>
+
+<body>
+    <br><br>
+    <div style="width:1500px; margin:auto;">
+<div class="container">
+    <div style="background-color:#2F5C58;" class="grower">
+        <b>Items</b>
+        <div class="content">
+            <a class="link" load_url="https://www.google.com/">Item 1</a><br>
+            <a class="link" search_url="https://github.com/search?q=">Item 2</a><br>
+            <a class="link">Item 3</a><br>
+            <a class="link">Item 4</a><br>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div style="background-color:#114926;" class="grower" height-override="360">
+        <b>Tools</b>
+        <div class="content">
+            <a class="link">Tool 1</a><br>
+            <a class="link">Tool 2</a><br>
+            <a class="link">Tool 3</a><br>
+            <a class="link">Tool 4</a><br>
+            <a class="link">Tool 5</a><br>
+            <a class="link">Tool 6</a><br>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div style="background-color:#6b2b13;" class="grower" height-override="330">
+        <b>Objects</b>
+        <div class="content">
+            <a class="link">Object a</a><br>
+            <a class="link">Object b</a><br>
+            <a class="link">Object c</a><br>
+            <a class="link">Object d</a><br>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div style="background-color: #3285db;" class="grower" height-override="270">
+        <b>Things</b>
+        <div class="content">
+            <a class="link">Thing 1</a><br>
+            <a class="link">Thing 2</a><br>
+            <a class="link">Thing 3</a><br>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div style="background-color: #637513;" class="grower">
+        <b>Search</b>
+        <div class="content"><br>
+            <a class="link">Search 1</a><br>
+            <a class="link">Search 2</a><br>
+            <a class="link">Search 3</a><br>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div style="background-color: #3548dc;" class="grower">
+        <b>Stuff</b>
+        <div class="content"><br>
+            <a class="link">Stuff 1</a><br>
+            <a class="link">Stuff 2</a><br>
+            <a class="link">Stuff 3</a><br>
+        </div>
+    </div>
+</div>
+
+
+<div class="super_container">
+    <div class="super_grower">
+        <b>Grow</b>
+    </div>
+</div>
+
+<div class="super_container">
+    <div class="super_grower">
+        <b>Know</b>
+    </div>
+</div>
+
+<div class="super_container">
+    <div class="super_grower">
+        <b>Use</b>
+    </div>
+</div>>
+
+</div>
+
+<script>
+
+var clicked=false;
+
+$('.grower').mouseover(function(){
+    if(clicked)
+        return; 
+    var height = $(this).attr("height-override");
+    if (height === undefined)
+        height=250;
+    $(this).css("zIndex","10");
+    $(this).stop().animate({"width": "250px","height": height+"px","left":"25px","top":"0px","line-height":"1em"}, 300,'easeOutBack');
+    $(this).find('.content').stop().fadeIn("70");
+    $(this).find('b').css("opacity",".2");
+}).mouseleave(function(){
+    if(clicked)
+        return; 
+    $(this).css("zIndex","1");
+    $(this).stop().animate({"width": "175px","height": "150px","left":"75px","top":"50px","line-height":"4.5em"}, 200,'easeOutBack');
+    $(this).find('b').css("opacity",".6");
+    $(this).find('.content').stop().fadeOut(50, function(){
+        $(this).css("left","50%");
+    });
+    $("#search_box").remove();
+});
+
+$('.super_grower').mouseover(function(){
+    $(this).css("zIndex","10");
+    $(this).stop().animate({"width": "380px","height": "400px","left":"75px","top":"0px","line-height":"1em"}, 300,'easeOutBack');
+    $(this).find('.content').stop().fadeIn("70");
+    $(this).find('b').css("opacity",".2");
+}).mouseleave(function(){
+    $(this).css("zIndex","1");
+    $(this).stop().animate({"width": "380px","height": "200px","left":"75px","top":"50px","line-height":"6em"}, 200,'easeOutBack');
+    $(this).find('b').css("opacity",".6");
+});
+
+$('.link').click(function(){
+    clicked=true;
+    $(this).parent().animate({"left":"-50%"},400,'easeInBack');
+    //console.log($(this).text())
+    if($(this).attr("load_url") !== undefined){
+        window.open($(this).attr("load_url"), "_self");
+    } else if($(this).attr("search_url") !== undefined){
+        var search_field = "<div id='search_box' class='content' style='left:150%; width:200px;'>Search "+$(this).text()+"<br><br><input id='search_input' type='text' style='border:0px; opacity:.7; padding:5px; text-align: center; font-size:20px; width:150px;' url='"+$(this).attr("search_url")+"'></input></div>";
+        $(this).parent().parent().append(search_field);
+        $("#search_box").fadeIn(300);
+        $("#search_box").animate({"left":"50%"},300,'easeOutBack', function(){
+            $("#search_input").focus();
+            clicked=false;
+        });
+        $('#search_input').keypress(function(event){
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            if(keycode == '13'){
+                window.open($(this).attr("url")+$('#search_input').val(),"_self");
+            }
+        })
+    }
+    
+    
+});
+
+$(document).keypress(function(e) {
+  console.log(e.which);
+});
+
+</script>
+</body>
+</html>
